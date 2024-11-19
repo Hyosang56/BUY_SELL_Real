@@ -1,0 +1,27 @@
+html,
+body {
+  height: 100%;
+}
+
+body {                            /*백그라운드 화면색, 페딩처리(여유공간) 옵션*/
+  padding-top: 0px;
+  padding-bottom: 20px;
+  background-color: #f5f5f5;
+}
+
+.form-findID-out {                        /*폼관련 설정 해당 값으로 전체 길이 설정*/
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  margin: auto;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.form-findID-out .form-ifindID-in {                 /*id항목 플로팅창,버튼 정렬 옵션*/
+  display: flex;
+}
+
+/*입력컴포넌트 설정*/
+
+
