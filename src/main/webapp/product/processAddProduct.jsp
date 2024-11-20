@@ -25,6 +25,13 @@ public static String randomid(){
 }
 %>
 
+    <%
+		String userid=null;
+		if(session.getAttribute("userid")!=null){
+			userid=(String)session.getAttribute("userid");
+		}
+	%>
+
 <%
 	
 	// 전달받은 파라미터 인코딩 방식 설정
@@ -99,7 +106,7 @@ public static String randomid(){
 
 	
 	// SQL 사용해 DB에 상품 등록하기
-	String insertsql= "INSERT INTO product(p_id, p_name, p_price, p_description, p_fileName, buycheck) values(?,?,?,?,?,?)";
+	String insertsql= "INSERT INTO product(p_id, p_name, p_price, p_description, p_fileName, buycheck, userid) values(?,?,?,?,?,?,?)";
 	pstmt= conn.prepareStatement(insertsql);
 	
 	pstmt.setString(1, productId);
@@ -108,6 +115,7 @@ public static String randomid(){
 	pstmt.setString(4, description);
 	pstmt.setString(5, productImage);
 	pstmt.setInt(6, 0);
+	pstmt.setString(7, userid);
 	
 	// SQL 실행
 	pstmt.executeUpdate();

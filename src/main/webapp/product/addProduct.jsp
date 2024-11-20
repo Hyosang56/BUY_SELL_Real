@@ -18,6 +18,7 @@
         </div>
     </div>
     
+    
     <div class="container">
     	<form name="newProduct" action="./processAddProduct.jsp" 
     	class="form-horizontal" method="post" enctype="multipart/form-data">
@@ -30,7 +31,7 @@
     		<div class="form-group row">
     			<label class="col-sm-2">가격</label>
     			<div class="col-sm-3">
-    				<input type="text" name="price" class="form-control">
+    				<input type="number" name="price" class="form-control">
     			</div>
     		</div>
     		<div class="form-group row">
