@@ -29,6 +29,7 @@
         // 레코드가 존재하면 다음 내용 실행
 		if (rs.next()) {
  	%>
+ 	<div class="content">        <%--Footer 부분 --%>
  	<div class="container">
  		<div class="row">
  			<div class="col-md-5">
@@ -81,7 +82,7 @@
 		if (pstmt != null) { pstmt.close(); }
 		if (conn != null) { conn.close(); }
 	%>
-	 <!-- footer -->
-    <jsp:include page="footer.jsp" />
+	</div>	
+		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
 </body>
 </html>

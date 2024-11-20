@@ -37,7 +37,7 @@
 			<%
 				}
 			%>
-			
+			<div class="content">  <%--Footer 부분 --%>
 			<div class="container">
     	<div class="row" align="center">
     	<!-- SQL 사용해 DB에서 상품 정보 가져오기 -->
@@ -80,6 +80,8 @@
     	</div>
     	<hr>
     </div>
+    	</div>	
+		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
 
 </body>
 </html>

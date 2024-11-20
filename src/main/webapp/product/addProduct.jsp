@@ -12,6 +12,7 @@
     <jsp:include page="/login/Topbar_login.jsp" />
     
     <!-- jumbotron -->
+    <div class="content">        <%--Footer 부분 --%>
     <div class="jumbotron">
         <div class="container">
             <h1 class="display-3">상품 등록</h1>
@@ -55,7 +56,7 @@
     	<hr>
     </div>
     
-    <!-- footer -->
-    <jsp:include page="footer.jsp" />
+	</div>	
+		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
 </body>
 </html>

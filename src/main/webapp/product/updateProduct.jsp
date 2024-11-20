@@ -23,6 +23,7 @@
 	<!-- menu -->
     <jsp:include page="/login/Topbar_login.jsp" />
     
+    <div class="content">        <%--Footer 부분 --%>
 	<h1> 판매중인 상품</h1>
 	<div class="container">
     	<div class="row" align="center">
@@ -98,7 +99,7 @@
     	<hr>
     </div>
 	
-    <!-- footer -->
-    <jsp:include page="footer.jsp" />
+	</div>	
+		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
 </body>
 </html>
