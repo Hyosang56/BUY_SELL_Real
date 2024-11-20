@@ -79,7 +79,7 @@ if(errMsg == null) errMsg = ""; %>
 					onclick="window.location.href='joinForm.jsp'">Join</button>
 					</div>
 					
-					<div>
+					<div class="FIND">
 					<a href="../userfind/findID.jsp">아이디 찾기</a>
 					<a href="../userfind/findPW.jsp">비밀번호 찾기</a>
 					</div>
