@@ -12,7 +12,30 @@
 </head>
 <body>
 	<!-- menu -->
-    <jsp:include page="menu.jsp" />
+    <%
+		String userid=null;
+		if(session.getAttribute("userid")!=null){
+			userid=(String)session.getAttribute("userid");
+		}
+	%>
+	
+	<%
+				if(userid==null){//로그인이 되어 있지 않다면
+			%>
+			
+            <jsp:include page="/login/Topbar.jsp" />
+
+
+            <%
+				} else{//로그인이 되어있다면
+			%>
+			
+			
+			<jsp:include page="/login/Topbar_login.jsp" />
+			
+			<%
+				}
+			%>
     
     <!-- jumbotron -->
     <div class="jumbotron">
@@ -50,8 +73,23 @@
     			</p>
     			<h4><%= rs.getString("p_price") %> 원</h4>
     			<p>
-    				<a href="#" class="btn btn-info">상품 주문 &raquo;</a>
-    				<a href="./products.jsp" class="btn btn-secondary">상품 목록 &raquo;</a>
+    			<%
+				if(userid==null){//로그인이 되어 있지 않다면
+				%>
+				
+            <a href="../login/loginForm.jsp" class="btn btn-info" onclick="alert('구매하려면 로그인해주세요.') ">구매하기 &raquo;</a>
+    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 &raquo;</a>
+    		
+            <%
+				} else{//로그인이 되어있다면
+			%>
+			
+			<a href="./processBuyProduct.jsp?id=<%= productId %>" class="btn btn-info">구매하기 &raquo;</a>
+    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 &raquo;</a>
+			
+			<%
+				}
+			%>
     			</p>
     		</div>
     	</div>
