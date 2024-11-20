@@ -40,6 +40,7 @@ if(errMsg == null) errMsg = ""; %>
 
 <jsp:include page="/login/Topbar.jsp" />
 
+<div class="content">        <%--Footer 부분 --%>
 <div class="text-center">
 <div class="contentmain">
 				
@@ -91,6 +92,8 @@ if(errMsg == null) errMsg = ""; %>
 		</main>
 		</div>
 		</div>
+	</div>	
+		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
 		
 </body>
 </html>

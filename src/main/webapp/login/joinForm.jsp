@@ -34,6 +34,7 @@
 
 <jsp:include page="/login/Topbar.jsp" />
 
+<div class="content">       <%--Footer 부분 --%>
 <div class="text-center">
 <div class="contentmain">
 
@@ -46,7 +47,7 @@
 				<input type="id" class="form-control" id="userid" name="userid" placeholder="ID" onkeydown="inputIdChk()" required> 
 				<label for="floatingInput">아이디(5글자 이상)</label>
 				</div>
-				<button type="button" onclick="CheckID()" class="btn btn-outline-secondary" name="dbCheckId">중복체크</button>
+				<button type="button" onclick="CheckID()" class="btn btn-outline-secondary" name="dbCheckId" >중복체크</button>
 				<%-- 아이디 중복 체크 확인 여부 --%>
 				<input type="hidden" name="idDuplication" value="idUncheck">
 				</div>
@@ -100,5 +101,9 @@
 		</main>
 		</div>
 		</div>
+		</div>
+		
+		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
+		
 </body>
 </html>
