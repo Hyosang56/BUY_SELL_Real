@@ -35,6 +35,7 @@
 
 <jsp:include page="/login/Topbar_login.jsp" />
 
+
     <% 
 	String userid = null;
 	if(session.getAttribute("userid")!=null){
@@ -44,7 +45,8 @@
 	MemberDTO user = new MemberDAO().getUser(userid);
 	
 	%>
-
+	
+<div class="content">      <%--Footer 부분 --%>
 <div class="text-center">
 <div class="contentmain">
 				
@@ -126,7 +128,9 @@
 					</main>
 					</div>
 					</div>
+					</div>
 
+           <jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
 
 </body>
 </html>
