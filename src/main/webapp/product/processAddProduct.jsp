@@ -124,5 +124,5 @@ public static String randomid(){
     if (pstmt != null) pstmt.close();
 		
 	// 상품 목록 페이지로 이동
-	response.sendRedirect("products.jsp");
+	response.sendRedirect("../login/MAIN.jsp");
 %>

@@ -78,5 +78,5 @@
 	if (conn != null) { conn.close(); }
 	
 	// 상품 수정 페이지로 이동
-	response.sendRedirect("editProduct.jsp?edit=update");
+	response.sendRedirect("./updateProduct.jsp");
 %>

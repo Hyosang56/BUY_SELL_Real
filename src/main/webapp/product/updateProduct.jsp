@@ -7,91 +7,96 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 수정</title>
+<style>
+	h1 { text-align: center; }
+</style>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 </head>
+
 <%
-	String edit = request.getParameter("edit");
+		String userid=null;
+		if(session.getAttribute("userid")!=null){
+			userid=(String)session.getAttribute("userid");
+		}
 %>
 <body>
 	<!-- menu -->
-    <jsp:include page="menu.jsp" />
+    <jsp:include page="/login/Topbar_login.jsp" />
     
-    <!-- jumbotron -->
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-3">상품 수정</h1>
-        </div>
-    </div>
+	<h1> 판매중인 상품</h1>
+	<div class="container">
+    	<div class="row" align="center">
 
  	<%
- 		String productId = request.getParameter("id");
- 		
+ 
 	 	PreparedStatement pstmt = null;
 		ResultSet rs = null;
         
-        // 데이터베이스에서 상품 id가 productId인 레코드 찾기
-		String sql = "select * from product where p_id = ?";
+        // 데이터베이스에서 내가 팔고있는 상품 보기
+		String sql = "select * from product where userid = ?";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, productId);
+		pstmt.setString(1, userid);
 		rs = pstmt.executeQuery();
         
         // 레코드가 존재하면 다음 내용 실행
-		if (rs.next()) {
+		while (rs.next()) {
  	%>
- 	<div class="container">
- 		<div class="row">
- 			<div class="col-md-5">
- 				<img src="../resources/images/<%= rs.getString("p_fileName") %>" style="width: 300px; height: 200px; object-fit: contain;">
- 			</div>
- 			<div class="col-md-7">
- 				<form name="newProduct" action="./processUpdateProduct.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
- 					<div class="form-group row">
-		    			<label class="col-sm-2">상품 코드</label>
-		    			<div class="col-sm-3">
-		    				<input type="text" id="productId" name="productId" class="form-control" value='<%= rs.getString("p_id") %>'>
-		    			</div>
-		    		</div>
-		    		<div class="form-group row">
-		    			<label class="col-sm-2">상품명</label>
-		    			<div class="col-sm-3">
-		    				<input type="text" id="name" name="name" class="form-control" value='<%= rs.getString("p_name") %>'>
-		    			</div>
-		    		</div>
-		    		<div class="form-group row">
-		    			<label class="col-sm-2">가격</label>
-		    			<div class="col-sm-3">
-		    				<input type="text" id="price" name="price" class="form-control" value='<%= rs.getInt("p_price") %>'>
-		    			</div>
-		    		</div>
-		    		<div class="form-group row">
-		    			<label class="col-sm-2">상세 설명</label>
-		    			<div class="col-sm-5">
-		    				<textarea name="description" cols="50" rows="2" class="form-control"><%= rs.getString("p_description") %></textarea>
-		    			</div>
-		    		</div>
-		    		<div class="form-group row">
-		    			<label class="col-sm-2">이미지</label>
-		    			<div class="col-sm-5">
-		    				<input type="file" name="productImage" class="form-control">
-		    			</div>
-		    		</div>
-		    		<div class="form-group row">
-		    			<div class="col-sm-offset-2 col-sm-10">
-		    				<input type="submit" class="btn btn-primary" value="등록">
-		    			</div>
-		    		</div>
- 				</form>
- 			</div>
- 		</div>
- 		<hr>
- 	</div>
- 	<%
-		}
-		
-		if (rs != null) { rs.close(); }
-		if (pstmt != null) { pstmt.close(); }
-		if (conn != null) { conn.close(); }
-	%>
+    		<div class="col-md-4 p-4">
+    		<img src="../resources/images/<%= rs.getString("p_fileName") %>" style="width: 300px; height: 200px; object-fit: contain;">
+    			<h3><%= rs.getString("p_name") %></h3>
+    			<p><%= rs.getString("p_price") %>원</p>
+    			<!-- 상품 아이디를 id 변수에 담아 파라미터로 전달 -->
+    			<%
+    			if(rs.getString("buycheck").equals("0")){
+    			%>
+			    <p><a href="./editProduct.jsp?id=<%= rs.getString("p_id") %>"
+			          class="btn btn-secondary" role="button">상품 수정 &raquo;</a></p>
+			    <%
+    			} else if(rs.getString("buycheck").equals("1")){
+		          %>
+		          	<p><button class="btn btn-secondary" role="button" disabled>판매 완료 &raquo;</button></p>
+		          <%
+    				}
+		          %>
+    		</div>
+    		<%
+    			}
+    		%>
+    		
+    	</div>
+    	<hr>
+    </div>
+    <h1> 구매한 상품</h1>
+    	<div class="container">
+    	<div class="row" align="center">
+     	<%
+ 
+	 	pstmt = null;
+		rs = null;
+        
+        // 데이터베이스에서 내가 팔고있는 상품 보기
+		sql = "select * from product where buy_userid = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, userid);
+		rs = pstmt.executeQuery();
+        
+        // 레코드가 존재하면 다음 내용 실행
+		while (rs.next()) {
+ 	%>
+    		<div class="col-md-4 p-4">
+    		<img src="../resources/images/<%= rs.getString("p_fileName") %>" style="width: 300px; height: 200px; object-fit: contain;">
+    			<h3><%= rs.getString("p_name") %></h3>
+    			<p><%= rs.getString("p_price") %>원</p>
+		          <p><button class="btn btn-secondary" role="button" disabled>구매 완료 &raquo;</button></p>
+
+    		</div>
+    		<%
+    			}
+    		%>
+    		
+    	</div>
+    	<hr>
+    </div>
 	
     <!-- footer -->
     <jsp:include page="footer.jsp" />

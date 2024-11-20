@@ -38,7 +38,7 @@
 			<div class="collapse navbar-collapse" id="navbarsExample04">
 				<ul class="navbar-nav me-auto mb-2 mb-md-0">
 					<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="###">내 상점</a></li>
+					<a class="nav-link active" aria-current="page" href="../product/updateProduct.jsp">내 상점</a></li>
 						</ul>
 				</div>
 				
