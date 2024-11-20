@@ -5,14 +5,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<%-- Bootstrap 가져오기 --%>
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+	crossorigin="anonymous"></script>
+<%-- Bootstrap 가져오기 --%>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
+
+<link href="../login/Design CSS/findPWresult.css?v=<%=System.currentTimeMillis() %>" rel="stylesheet">        <%-- 스타일을 위한 css 시트 --%>
+
 
 <script type="text/javascript" src="../resources/js/findinfo.js?v=<%=System.currentTimeMillis() %>"> <%-- 서버연동 정보확인 자바스크립트 --%>
 </script>
 
+</head>
 <body>
+
+<jsp:include page="/login/Topbar.jsp" />
 
 <%
  request.setCharacterEncoding("UTF-8");
@@ -24,19 +43,24 @@ MemberDAO dao = new MemberDAO();
  
 %>
 
-<form name="idsearch" method="post">
+<div class="text-center">
+<div class="contentmain">
+
+<main class="form-findPWresult-out">
+
+<form class="form-findPWresult-in" name="idsearch" method="post">
       <%
        if (userpw != null) {
       %>
       
       <div class = "container">
       	<div class = "found-success">
-	      <h4>회원님의 비밀번호는 </h4>  
-	      <div class ="found-id"> <%=userpw%></div>
-	      <h4>  입니다 </h4>
+	        
+	      <div class ="found-id" style="font-weight::bold; font-size:24px">  회원님의 비밀번호는 <%=userpw%> 입니다.  </div>
+	      
 	     </div>
 	     <div class = "found-login">
- 		    <input type="button" id="btnLogin" value="로그인" onClick = "location.href='../login/loginForm.jsp'"/>
+ 		    <input type="button" class="btn btn-secondary" id="btnLogin" name="login" value="로그인" onClick = "location.href='../login/loginForm.jsp'"/>
        	</div>
        </div>
       <%
@@ -47,8 +71,8 @@ MemberDAO dao = new MemberDAO();
 	      <h4>  등록된 정보가 없습니다 </h4>  
 	     </div>
 	     <div class = "found-login">
- 		    <input type="button" id="btnback" value="다시 찾기" onClick="history.back()"/>
- 		    <input type="button" id="btnjoin" value="회원가입" onClick="location.href='../login/joinForm.jsp'"/>
+ 		    <input type="button" class="btn btn-secondary" id="btnback" value="다시 찾기" onClick="history.back()"/>
+ 		    <input type="button" class="btn btn-secondary" id="btnjoin" value="회원가입" onClick="location.href='../login/joinForm.jsp'"/>
        	</div>
        </div>
        
@@ -56,6 +80,10 @@ MemberDAO dao = new MemberDAO();
   }
  %> 
       </form>
+      
+      </main>
+      </div>
+      </div>
       
 </body>
 </html>

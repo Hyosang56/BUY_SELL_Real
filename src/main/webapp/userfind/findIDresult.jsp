@@ -55,15 +55,12 @@
       
       <div class = "container">
       	<div class = "found-success">
-      	<h2>회원님의 아이디는 </h2>
-	      
-	      <div class ="found-id" id="IDresult"><%=userid%></div>
-	      
-	      <h2>입니다. </h2>
-	      
-	     </div>
+	      <div class ="found-id" id="IDresult" style="font-weight::bold; font-size:24px">
+	      회원님의 아이디는  <%=userid%>  입니다.</div>
+	 
+	    </div>
 	     <div class = "found-login">
- 		    <input type="button" id="btnLogin" value="로그인" onClick = "location.href='../login/loginForm.jsp'"/>
+ 		    <input type="button" class="btn btn-secondary" name="login" id="btnLogin" value="로그인" onClick = "location.href='../login/loginForm.jsp'"/>
        	</div>
        </div>
       <%
@@ -74,8 +71,8 @@
 	      <h4>  등록된 정보가 없습니다 </h4>  
 	     </div>
 	     <div class = "found-login">
- 		    <input type="button" id="btnback" value="다시 찾기" onClick="history.back()"/>
- 		    <input type="button" id="btnjoin" value="회원가입" onClick="location.href='../login/joinForm.jsp'"/>
+ 		    <input type="button" class="btn btn-secondary" id="btnback" value="다시 찾기" onClick="history.back()"/>
+ 		    <input type="button" class="btn btn-secondary" id="btnjoin" value="회원가입" onClick="location.href='../login/joinForm.jsp'"/>
        	</div>
        </div>
        <%

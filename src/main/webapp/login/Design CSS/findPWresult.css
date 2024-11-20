@@ -17,7 +17,7 @@ padding-top: 100px;
 	
 }
 
-.form-findIDresult-out {                        /*폼관련 설정 해당 값으로 전체 길이 설정*/
+.form-findPWresult-out {                        /*폼관련 설정 해당 값으로 전체 길이 설정*/
   width: 100%;
   max-width: 500px;
   padding: 20px;
@@ -27,7 +27,7 @@ padding-top: 100px;
   border-radius: 12px;
 }
 
-.form-ifindIDresult-in {                 /*id항목 플로팅창,버튼 정렬 옵션*/
+.form-ifindPWresult-in {                 /*id항목 플로팅창,버튼 정렬 옵션*/
   width: 100%;
   max-width: 500px;
   padding: 20px;
