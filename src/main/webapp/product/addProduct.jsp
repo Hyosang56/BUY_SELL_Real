@@ -6,6 +6,17 @@
 <meta charset="UTF-8">
 <title>상품 등록</title>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+<%-- Bootstrap 가져오기 --%>
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+<%-- Bootstrap 가져오기 --%>
+
+<link href="../product/DesignCSS/add.css?v=<%=System.currentTimeMillis() %>" rel="stylesheet">
 </head>
 <body>
 	<!-- menu -->
@@ -13,50 +24,37 @@
     
     <!-- jumbotron -->
     <div class="content">        <%--Footer 부분 --%>
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-3">상품 등록</h1>
-        </div>
-    </div>
+ 	<div class="text-center">
+	<div class="contentmain">
     
-    
-    <div class="container">
-    	<form name="newProduct" action="./processAddProduct.jsp" 
-    	class="form-horizontal" method="post" enctype="multipart/form-data">
-    		<div class="form-group row">
-    			<label class="col-sm-2">상품명</label>
-    			<div class="col-sm-3">
-    				<input type="text" name="name" class="form-control">
-    			</div>
+		<main class="form-join-out">
+        <h3>상품 등록해주세요.</h3>
+    	<form class="form-join-in" name="newProduct" action="./processAddProduct.jsp" 
+    	 method="post" enctype="multipart/form-data">
+    	 
+    		<div class="form-floating">
+    				<input type="text" class="form-control" name="name" size = "30" placeholder="name" required>
+    				<label for="floatingInput">상품 이름</label>
     		</div>
-    		<div class="form-group row">
-    			<label class="col-sm-2">가격</label>
-    			<div class="col-sm-3">
-    				<input type="number" name="price" class="form-control">
-    			</div>
+    		<div class="form-floating">
+    				<input type="number" class="form-control" name="price" size = "30" placeholder="name" required>
+    				<label for="floatingInput">상품 가격(숫자만 입력)</label>
     		</div>
-    		<div class="form-group row">
-    			<label class="col-sm-2">상세 정보</label>
-    			<div class="col-sm-5">
-    				<textarea name="description" cols="50" rows="2" class="form-control"></textarea>
-    			</div>
+    		<div class="form-floating">
+    				<textarea name="description" cols="50" rows="2" class="form-control" placeholder="name" ></textarea>
+    				<label for="floatingInput">상품에대해 설명해주세요.</label>
     		</div>
-    		<div class="form-group row">
-			  	<label class="col-sm-2">이미지</label>
-			    <div class="col-sm-5">
-			   		<input type="file" name="productImage" class="form-control">
-			  	</div>
-			  </div>
-    		<div class="form-group row">
-    			<div class="col-sm-offset-2 col-sm-10">
-    				<input type="submit" class="btn btn-primary" value="등록">
-    			</div>
+    		<div class="form-floating">
+    				<input type="file" class="form-control" name="productImage" size = "30" required>
     		</div>
+    		<div class="d-grid gap-2">
+				<button class="btn btn-outline-dark btn-lg" type="submit" value="등록" >등록</button>
+				</div>
     	</form>
-    	<hr>
+    	</main>
     </div>
-    
-	</div>	
+    </div>
+    </div>
 		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
 </body>
 </html>

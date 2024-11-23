@@ -77,15 +77,15 @@
 				if(userid==null){//로그인이 되어 있지 않다면
 				%>
 				
-            <a href="../login/loginForm.jsp" class="btn btn-info" onclick="alert('구매하려면 로그인해주세요.') ">구매하기 &raquo;</a>
-    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 &raquo;</a>
+            <a href="../login/loginForm.jsp" class="btn btn-info" onclick="alert('구매하려면 로그인해주세요.') ">구매하기 </a>
+    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 </a>
     		
             <%
 				} else{//로그인이 되어있다면
 			%>
 			
-			<a href="./processBuyProduct.jsp?id=<%= productId %>" class="btn btn-info">구매하기 &raquo;</a>
-    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 &raquo;</a>
+			<a href="./processBuyProduct.jsp?id=<%= productId %>" class="btn btn-info">구매하기 </a>
+    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 </a>
 			
 			<%
 				}

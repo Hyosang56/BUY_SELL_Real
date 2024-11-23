@@ -51,11 +51,11 @@
     			if(rs.getString("buycheck").equals("0")){
     			%>
 			    <p><a href="./editProduct.jsp?id=<%= rs.getString("p_id") %>"
-			          class="btn btn-secondary" role="button">상품 수정 &raquo;</a></p>
+			          class="btn btn-secondary" role="button">상품 수정 </a></p>
 			    <%
     			} else if(rs.getString("buycheck").equals("1")){
 		          %>
-		          	<p><button class="btn btn-secondary" role="button" disabled>판매 완료 &raquo;</button></p>
+		          	<p><button class="btn btn-secondary" role="button" disabled>판매 완료 </button></p>
 		          <%
     				}
 		          %>
@@ -88,7 +88,7 @@
     		<img src="../resources/images/<%= rs.getString("p_fileName") %>" style="width: 300px; height: 200px; object-fit: contain;">
     			<h3><%= rs.getString("p_name") %></h3>
     			<p><%= rs.getString("p_price") %>원</p>
-		          <p><button class="btn btn-secondary" role="button" disabled>구매 완료 &raquo;</button></p>
+		          <p><button class="btn btn-secondary" role="button" disabled>구매 완료 </button></p>
 
     		</div>
     		<%
