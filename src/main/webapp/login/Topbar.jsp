@@ -28,7 +28,7 @@
 		<div class="container-md">
 		<div class="imgform">
 			<a class="navbar-brand" href="../login/MAIN.jsp">              <%--우측상단 이미지 --%>
-			 <img src="../docs/pic/Fulllogoedit.png" alt="buynselllogo" width="236" height="43">
+			 <img src="../docs/pic/MainLogo remake-1.png" alt="buynselllogo" width="234px" height="45px">
 			</a>
 			
 			</div>
