@@ -10,6 +10,9 @@
 <title>상품 상세 정보</title>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 </head>
+<style>
+	
+</style>
 <body>
 	<!-- menu -->
     <%
@@ -37,6 +40,7 @@
 				}
 			%>
     
+    <div class="content">  <%--Footer 부분 --%>
     <!-- jumbotron -->
     <div class="jumbotron">
         <div class="container">
@@ -62,7 +66,7 @@
     	<div class="row">
     		<!-- 코드 추가 -->
 			<div class="col-md-5">
-				<img src="../resources/images/<%= rs.getString("p_fileName") %>" style="width: 300px; height: 300px; object-fit: contain;">
+				<img src="../resources/images/<%= rs.getString("p_fileName") %>" style="width: 100%; height: 300px; object-fit: contain;">
 			</div>
     		<div class="col-md-6">
     			<h3><%= rs.getString("p_name") %></h3>
@@ -109,7 +113,7 @@
 		if (conn != null) { conn.close(); }
 	%>
 	
-    <!-- footer -->
-    <jsp:include page="footer.jsp" />
+    </div>	
+		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
 </body>
 </html>

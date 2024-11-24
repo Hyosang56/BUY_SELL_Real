@@ -27,9 +27,9 @@
  	<div class="text-center">
 	<div class="contentmain">
     
-		<main class="form-join-out">
+		<main class="form-add-out">
         <h3>상품 등록해주세요.</h3>
-    	<form class="form-join-in" name="newProduct" action="./processAddProduct.jsp" 
+    	<form class="form-add-in" name="newProduct" action="./processAddProduct.jsp" 
     	 method="post" enctype="multipart/form-data">
     	 
     		<div class="form-floating">

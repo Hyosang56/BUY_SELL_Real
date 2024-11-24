@@ -18,7 +18,7 @@ body {                            /*백그라운드 화면색, 페딩처리(여�
 	
 }
 
-.form-join-out {                        /*폼관련 설정 해당 값으로 전체 길이 설정*/
+.form-add-out {                        /*폼관련 설정 해당 값으로 전체 길이 설정*/
   width: 100%;
   max-width: 500px;
   padding: 20px;
@@ -27,43 +27,43 @@ body {                            /*백그라운드 화면색, 페딩처리(여�
   border-radius: 12px;
 }
 
-.form-join-in {                        /*폼관련 설정 해당 값으로 전체 길이 설정*/
+.form-add-in {                        /*폼관련 설정 해당 값으로 전체 길이 설정*/
   width: 100%;
   max-width: 500px;
   padding: 20px;
   margin: auto;
 }
 
-.form-join-in .form-radio {                 /*라디오박스 폰트 옵션*/
+.form-add-in .form-radio {                 /*라디오박스 폰트 옵션*/
   font-weight: 400;
   text-align: left;
   margin-bottom: 10px;
 }
 
-.form-join-in .form-id {                 /*id항목 플로팅창,버튼 정렬 옵션*/
+.form-add-in .form-id {                 /*id항목 플로팅창,버튼 정렬 옵션*/
   display: flex;
 }
 
-.form-join-in .form-floating:focus-within {
+.form-add-in .form-floating:focus-within {
   z-index: 7;
 }
 
 /*입력컴포넌트 설정*/
 
 
-.form-join-in input[type="text"] {           /*이메일 입력 플로팅라벨 옵션*/
+.form-add-in input[type="text"] {           /*이메일 입력 플로팅라벨 옵션*/
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-join-in input[type="number"] {           /*이메일 입력 플로팅라벨 옵션*/
+.form-add-in input[type="number"] {           /*이메일 입력 플로팅라벨 옵션*/
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-join-in textarea[name="description"]{
+.form-add-in textarea[name="description"]{
 	 width: 100%;
     height: 200px;
 }

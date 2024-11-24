@@ -22,20 +22,44 @@
             display: inline-block; /* 이미지 가운데 정렬 */
             
         }
-        /* 상품 이미지 스타일 */
-        .product-img {
-            width: 200px; /* 이미지 크기 고정 */
-            height: auto; /* 비율 유지 */
-            cursor: pointer; /* 마우스를 올렸을 때 클릭 가능하다는 표시 */
-            border-radius: 10px; /* 이미지 둥근 모서리 */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
-        }
-
+        /* 상품 카드 스타일 */
+		.product-card {
+		    width: 240px; /* 카드의 가로 너비 */
+		    padding: 16px; /* 내부 여백 */
+		    border: 2px solid #000; /* 검은색 테두리 */
+		    border-radius: 12px; /* 둥근 모서리 */
+		    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+		    background-color: #fff; /* 흰색 배경 */
+		    text-align: center; /* 내용 가운데 정렬 */
+		    display: flex; /* 플렉스 레이아웃 */
+		    flex-direction: column; /* 세로 방향으로 정렬 */
+		    align-items: center; /* 수평 중앙 정렬 */
+		}
+		.product-img {
+		    width: 200px; /* 고정 가로 크기 */
+		    height: 200px; /* 고정 세로 크기 */
+		    object-fit: cover; /* 비율 유지하며, 잘리는 부분이 생길 수 있음 */
+		    border-radius: 10px; /* 둥근 모서리 */
+		    margin-bottom: 12px; /* 이미지와 텍스트 간 간격 */
+		    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+		    cursor: pointer; /* 마우스를 올렸을 때 클릭 가능하다는 표시 */
+		}
         /* 상품 이미지 hover 효과 */
         .product-img:hover {
             transform: scale(1.13); /* 확대 효과 */
             transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
         }
+        .product-img-gray {
+        	width: 200px; /* 고정 가로 크기 */
+		    height: 200px; /* 고정 세로 크기 */
+		    object-fit: cover; /* 비율 유지하며, 잘리는 부분이 생길 수 있음 */
+		    border-radius: 10px; /* 둥근 모서리 */
+		    margin-bottom: 12px; /* 이미지와 텍스트 간 간격 */
+		    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+		    cursor: pointer; /* 마우스를 올렸을 때 클릭 가능하다는 표시 */    
+        	filter: grayscale(100%);
+        }
+
         
         /* 상품을 가로로 정렬하기 위한 컨테이너 */
         .product-container {
@@ -44,6 +68,9 @@
             gap: 20px; /* 카드 간격 */
             justify-items: center; /* 카드 중앙 정렬 */
             margin-top: 20px;
+        }
+        .h3-line{
+        	text-decoration: line-through;
         }
     </style>
 <body>
@@ -80,6 +107,7 @@
 			<div class="content">  <%--Footer 부분 --%>
 			<div class="container">
     	<div class="row" align="center">
+    	<div class="product-container">
     	<!-- SQL 사용해 DB에서 상품 정보 가져오기 -->
     		<%
     		// 데이터베이스에 SQL문을 전달하는 PreparedStatement 객체
@@ -95,20 +123,25 @@
     		while(rs.next()){
     			
     		%>
-    		<div class="col-md-4 p-4">
+    		
+    		<div class="product-card">
+    		<%
+    			if(rs.getString("buycheck").equals("0")){
+   			%>
+    		<a href="../product/product.jsp?id=<%= rs.getString("p_id") %>">
     		<img src="../resources/images/<%= rs.getString("p_fileName") %>" class="product-img">
+    		</a>
     			<h3><%= rs.getString("p_name") %></h3>
     			<p><%= rs.getString("p_price") %>원</p>
-    			<!-- 상품 아이디를 id 변수에 담아 파라미터로 전달 -->
-    			<%
-    			if(rs.getString("buycheck").equals("0")){
-    			%>
-			    <p><a href="../product/product.jsp?id=<%= rs.getString("p_id") %>"
-			          class="btn btn-secondary" role="button">상세 정보</a></p>
-			    <%
+    		<%
     			} else if(rs.getString("buycheck").equals("1")){
-		          %>
-		          	<p><button class="btn btn-secondary" role="button" disabled>판매 완료</button></p>
+          	%>
+    			<a href="javascript:void(0)" onclick="alert('이미 판매된 상품입니다.');" role="button">
+    			<img src="../resources/images/<%= rs.getString("p_fileName") %>" class="product-img-gray">
+    			</a>
+    			<h3 class="h3-line"><%= rs.getString("p_name") %></h3>
+    			<p class="h3-line"><%= rs.getString("p_price") %>원</p>
+    			
 		          <%
     				}
 		          %>
@@ -116,7 +149,7 @@
     		<%
     			}
     		%>
-    		
+    	</div>
     	</div>
     	<hr>
     </div>
