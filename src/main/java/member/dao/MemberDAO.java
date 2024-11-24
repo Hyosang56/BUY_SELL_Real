@@ -16,7 +16,7 @@ public class MemberDAO {
 	private String DBPassword = "dbmgrpw";
 	
 	private Connection conn;
-	private PreparedStatement pstmt;     //sql 인젝션 방
+	private PreparedStatement pstmt;     //sql 인젝션 방지 
 	private ResultSet rs;
 	
 	public MemberDAO(){

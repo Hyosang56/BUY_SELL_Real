@@ -68,8 +68,8 @@
 				
 				<li class="sell-item">
 				<div class="btn-group " role="sell group" aria-label="sell label">
-				<button type="button" class="btn btn-outline-light btn-lg fw-bold" onclick="sellbutton()">판매</button>
-				<button type="button" class="btn btn-outline-light btn-lg fw-bold" onclick="auctionbutton()">경매</button>
+				<button type="button" class="btn btn-light btn-lg fw-bold" onclick="sellbutton()">판매</button>
+				<button type="button" class="btn btn-warning btn-lg fw-bold" onclick="auctionbutton()">경매</button>
 				</li>
 				
 				<li class="login-item">
