@@ -20,6 +20,19 @@
 	crossorigin="anonymous"></script>
 <%-- Bootstrap 가져오기 --%>
 
+<script>
+        function sellbutton() {
+            // 특정 URL로 이동
+            window.location.href = '../product/addProduct.jsp'; // 이동할 URL 설정
+        }
+        
+        function auctionbutton() {  
+            // 특정 URL로 이동
+            window.location.href = '#'; // 이동할 URL 설정
+        }
+        
+    </script>
+    
 
 </head>
 <body>
@@ -49,7 +62,9 @@
 				
 				
 				<li class="sell-item">
-				<a class="btn btn-warning btn-lg fw-bold" href="../product/addProduct.jsp">판매하기</a>
+				<div class="btn-group " role="sell group" aria-label="sell label">
+				<button type="button" class="btn btn-outline-light btn-lg fw-bold" onclick="sellbutton()">판매</button>
+				<button type="button" class="btn btn-outline-light btn-lg fw-bold" onclick="auctionbutton()">경매</button>
 				</li>
 				
 				<li class="login-item">
