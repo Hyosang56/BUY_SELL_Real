@@ -41,6 +41,12 @@ body {                            /*백그라운드 화면색, 페딩처리(여�
 
 .form-join-in .form-id {                 /*id항목 플로팅창,버튼 정렬 옵션*/
   display: flex;
+  align-items: center;        /* 수직 중앙 정렬 */
+  gap: -1px;      /* ID라벨과 버튼사이 여백 */
+}
+
+.form-join-in .form-id .form-floating{                 /*id항목 플로팅창,버튼 정렬 옵션*/
+  flex-grow: 1;
 }
 
 .form-join-in .form-floating:focus-within {
@@ -53,8 +59,15 @@ body {                            /*백그라운드 화면색, 페딩처리(여�
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  width: 332px;
+
 }
+
+.form-join-in .form-id button {
+  flex-shrink: 0; /* 버튼 크기 고정 */
+  white-space: nowrap; /* 버튼 텍스트 줄바꿈 방지 */
+  height: 58px; /* 버튼 높이 */
+}
+
 
 .form-join-in input[type="password"] {           /*비밀번호 입력 플로팅라벨 옵션*/
   margin-bottom: -1px;
