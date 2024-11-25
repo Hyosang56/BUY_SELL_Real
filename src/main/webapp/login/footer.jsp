@@ -7,6 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Footer Test</title>
 
+<%-- 폰트설정 링크 --%>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+
 <style>
 /* 레이아웃 초기화 */
     html, body {
@@ -15,6 +18,7 @@
         height: 100%; /* 전체 페이지 높이를 100%로 설정 */
         display: flex;
         flex-direction: column; /* 세로 정렬 */
+        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
     }
     
     /* 콘텐츠 영역 */

@@ -1,6 +1,8 @@
 html,
 body {
   height: 100%;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+  
 }
 
 body {                            /*백그라운드 화면색, 페딩처리(여유공간) 옵션*/

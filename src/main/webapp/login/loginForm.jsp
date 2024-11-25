@@ -33,6 +33,8 @@ if(errMsg == null) errMsg = ""; %>
 <script type="text/javascript" src="../resources/js/loginsave.js?v=<%=System.currentTimeMillis() %>"> <%-- 입력값 확인 증명 자바스크립트 --%>
 </script>
 
+<%-- 폰트설정 링크 --%>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 
 </head>
 

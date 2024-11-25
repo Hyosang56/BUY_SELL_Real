@@ -67,6 +67,9 @@ boolean exist = memberDAO.isExistId(id);
 	
 </script>
 
+<%-- 폰트설정 링크 --%>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+
 </head>
 <body>
 
