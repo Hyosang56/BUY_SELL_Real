@@ -13,14 +13,12 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
-<%-- Bootstrap 가져오기 --%>
-<link href="../product/DesignCSS/add.css?v=<%=System.currentTimeMillis() %>" rel="stylesheet">
+<%-- CSS 가져오기 --%>
+<link href="DesignCSS/add.css?v=<%=System.currentTimeMillis() %>" rel="stylesheet">
 <!-- 폰트설정 링크 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 </head>
-<style>
-	 
-</style>
+
 <body>
 	<!-- menu -->
     <jsp:include page="/login/Topbar_login.jsp" />
