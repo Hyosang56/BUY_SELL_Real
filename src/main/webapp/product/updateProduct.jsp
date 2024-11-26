@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ include file="dbconn.jsp" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="product.dao.ProductDAO" %>
+<%@ page import="product.dto.ProductDTO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,9 +69,7 @@
             justify-items: center; /* 카드 중앙 정렬 */
             margin-top: 20px;
         }
-        .h3-line{
-        	text-decoration: line-through;
-        }
+        
 		        hr {
 		    margin: 20px 0; /* 위, 아래 20px 간격 추가 */
 		    border: 1px solid #ccc; /* 경계선 두께와 색상 */
@@ -87,12 +88,6 @@
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 </head>
 
-<%
-		String userid=null;
-		if(session.getAttribute("userid")!=null){
-			userid=(String)session.getAttribute("userid");
-		}
-%>
 <body>
 	<!-- menu -->
     <jsp:include page="/login/Topbar_login.jsp" />
@@ -104,36 +99,34 @@
     	<div class="product-container">
 
  	<%
- 
-	 	PreparedStatement pstmt = null;
-		ResultSet rs = null;
-        
-        // 데이터베이스에서 내가 팔고있는 상품 보기
-		String sql = "select * from product where userid = ?";
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, userid);
-		rs = pstmt.executeQuery();
-        
-        // 레코드가 존재하면 다음 내용 실행
-		while (rs.next()) {
+	 	String userid=null;
+		if(session.getAttribute("userid")!=null){
+			userid=(String)session.getAttribute("userid");
+		}
+	 	ProductDAO productDAO = new ProductDAO();
+	    List<ProductDTO> products = null;
+	    try {
+	        products = productDAO.findSellUserid(userid);
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        out.println("<p>상품 데이터를 가져오는 중 오류가 발생했습니다.</p>");
+	    }
+	    if (products != null) {
+	        for (ProductDTO product : products) {
  	%>		
  			<div class="product-card">
-    		<%
-    			if(rs.getString("buycheck").equals("0")){
-   			%>
-    		<a href="./editProduct.jsp?id=<%= rs.getString("p_id") %>">
-    		<img src="../resources/images/<%= rs.getString("p_fileName") %>" class="product-img">
+    		<%  if(product.getBuycheck() == 0){  %>
+    		<a href="./editProduct.jsp?id=<%= product.getP_id() %>">
+    		<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img">
     		</a>
-    			<p class="font-main"><%= rs.getString("p_name") %></p>
-    			<p class="font-price"><%= rs.getString("p_price") %>원</p>
-    		<%
-    			} else if(rs.getString("buycheck").equals("1")){
-          	%>
+    			<p class="font-main"><%= product.getP_name() %></p>
+    			<p class="font-price"><%= product.getP_price() %>원</p>
+    		<% } else {  %>
     			<a href="javascript:void(0)" onclick="alert('이미 판매된 상품입니다.');" role="button">
-    			<img src="../resources/images/<%= rs.getString("p_fileName") %>" class="product-img-gray">
+    			<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img-gray">
     			</a>
-    			<p class="font-main"><%= rs.getString("p_name") %></p>
-    			<p class="font-price"><%= rs.getString("p_price") %>원</p>
+    			<p class="font-main" style="text-decoration: line-through;"><%= product.getP_name() %></p>
+    			<p class="font-price" style="text-decoration: line-through;"><%= product.getP_price() %>원</p>
     			
 		          <%
     				}
@@ -142,6 +135,7 @@
  	
     		<%
     			}
+	    	}
     		%>
     		
     	</div>
@@ -155,28 +149,27 @@
     	<div class="product-container">
      	<%
  
-	 	pstmt = null;
-		rs = null;
-        
-        // 데이터베이스에서 내가 팔고있는 상품 보기
-		sql = "select * from product where buy_userid = ?";
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, userid);
-		rs = pstmt.executeQuery();
-        
-        // 레코드가 존재하면 다음 내용 실행
-		while (rs.next()) {
+     	products = null;
+	    try {
+	    	products = productDAO.findBuyUserid(userid);
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        out.println("<p>상품 데이터를 가져오는 중 오류가 발생했습니다.</p>");
+	    }
+	    if (products != null) {
+	        for (ProductDTO product : products) {
  	%>
  	<div class="product-card">
     		<a href="javascript:void(0)" onclick="alert('이미 구매한 상품입니다.');" role="button">
-    			<img src="../resources/images/<%= rs.getString("p_fileName") %>" class="product-img-gray">
+    			<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img-gray">
     			</a>
-    			<h3 class="h3-line"><%= rs.getString("p_name") %></h3>
-    			<p class="h3-line"><%= rs.getString("p_price") %>원</p>
+    			<p class="font-main" style="text-decoration: line-through;"><%= product.getP_name() %></p>
+    			<p class="font-price" style="text-decoration: line-through;"><%= product.getP_price() %>원</p>
 
     		</div>
     		<%
     			}
+	    	}
     		%>
     		
     	</div>

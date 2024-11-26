@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
-<%@ include file="dbconn.jsp" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="product.dao.ProductDAO" %>
+<%@ page import="product.dto.ProductDTO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,38 +82,37 @@
  	<jsp:include page="/login/Topbar_login.jsp" />
 	
 	<%
- 		String productId = request.getParameter("id");
+ 	String productId = request.getParameter("id");
  		
-	 	PreparedStatement pstmt = null;
-		ResultSet rs = null;
-        
-        // 데이터베이스에서 상품 id가 productId인 레코드 찾기
-		String sql = "select * from product where p_id = ?";
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, productId);
-		rs = pstmt.executeQuery();
-        
-        // 레코드가 존재하면 다음 내용 실행
-		if (rs.next()) {
+	ProductDAO productDAO = new ProductDAO();
+    ProductDTO product = null;
+    try{
+    	product = productDAO.findProduct(productId);
+    }catch(SQLException e){
+    	e.printStackTrace();
+        out.println("<p>상품 데이터를 가져오는 중 오류가 발생했습니다.</p>");
+    }
+	
+	if (product != null) {  // 레코드가 존재하는 경우에만 데이터 출력
  	%>
  	<div class="content">        <%--Footer 부분 --%>
  	<div class="outline">
     		<div class="form-product-out">
  			<div>
- 				<img src="../resources/images/<%= rs.getString("p_fileName") %>" class="product-img">
+ 				<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img">
  			</div>
  			<div class="form-textbox">
  				<form name="newProduct" action="./processUpdateProduct.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
 		    		<!-- Hidden field to pass productId -->
-    				<input type="hidden" name="productId" value="<%= rs.getString("p_id") %>">
-		    		<input type="text" id="name" name="name" class="font-main" maxlength="15" value='<%= rs.getString("p_name") %>'>
-		    		<input type="number" id="price" name="price" class="font-price" value='<%= rs.getInt("p_price") %>'>
-		    		<textarea name="description" maxlength="238" class="form-description"><%= rs.getString("p_description") %></textarea>
+    				<input type="hidden" name="productId" value="<%= product.getP_id() %>">
+		    		<input type="text" id="name" name="name" class="font-main" maxlength="15" value='<%= product.getP_name() %>'>
+		    		<input type="number" id="price" name="price" class="font-price" value='<%= product.getP_price() %>'>
+		    		<textarea name="description" maxlength="238" class="form-description"><%= product.getP_description() %></textarea>
 		    		<input type="file" name="productImage" class="form-control">
 		    		<div class="form-group row" style="margin-top:20px;">
 		    			<div class="col-sm-offset-2 col-sm-10">
 		    				<input type="submit" class="btn btn-primary" value="수정하기">
-		    				<a href="./deleteProduct.jsp?id=<%= rs.getString("p_id") %>" class="btn btn-danger" role="button">삭제하기</a>
+		    				<a href="./deleteProduct.jsp?id=<%= product.getP_id() %>" class="btn btn-danger" role="button">삭제하기</a>
 		    			</div>
 		    		</div>
 		    		
@@ -120,13 +121,7 @@
  		</div>
  		<hr>
  	</div>
- 	<%
-		}
-		
-		if (rs != null) { rs.close(); }
-		if (pstmt != null) { pstmt.close(); }
-		if (conn != null) { conn.close(); }
-	%>
+ 	<% } %>
 	</div>	
 		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
 </body>

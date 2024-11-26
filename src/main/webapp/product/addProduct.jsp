@@ -7,7 +7,6 @@
 <title>상품 등록</title>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <%-- Bootstrap 가져오기 --%>
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -20,9 +19,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 </head>
 <style>
-	 body {
-        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
-    	}
+	 
 </style>
 <body>
 	<!-- menu -->
