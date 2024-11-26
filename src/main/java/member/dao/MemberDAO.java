@@ -24,8 +24,8 @@ public class MemberDAO {
 			String dbURL = "jdbc:mysql://localhost:3306/buynselldb";
 			String dbID="dbmgrid";
 			String dbPasseord="dbmgrpw";
-			Class.forName(diver); ;//mysql드라이버를 찾는다.
-			conn=DriverManager.getConnection(dbURL,dbID,dbPasseord);
+			Class.forName(diver); //mysql드라이버를 찾는다.
+			conn = DriverManager.getConnection(dbURL,dbID,dbPasseord);
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -42,18 +42,14 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 		return conn;
-	}
-	
-	////////////////
-	
+	}	
 	
 	////////////////////////////
 	
 	public int write(MemberDTO memberDTO){           //회원가입
 		int su = 0;
 		conn = getConnection();
-		String sql =
-				"Insert into userdb values (?,?,?,?,?,?,?)";
+		String sql = "Insert into userdb values (?,?,?,?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -278,7 +274,7 @@ public class MemberDAO {
 			}
 			return -1;//아이디가 없음,rs의 결과가 존재 하지 않음
 		} 
-		catch(Exception e) {
+		catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return -2; //데이터베이스 오류
