@@ -28,5 +28,5 @@
 	if (conn != null) { conn.close(); }
 	
 	// 상품 삭제 페이지로 이동
-	response.sendRedirect("editProduct.jsp?edit=delete");
+	response.sendRedirect("./updateProduct.jsp");
 %>

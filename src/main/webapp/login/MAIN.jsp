@@ -27,6 +27,7 @@
         body {
         font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
     	}
+
         /* 상품 카드 스타일 */
 		.product-card {
 		    width: 240px; /* 카드의 가로 너비 */
@@ -74,9 +75,17 @@
             justify-items: center; /* 카드 중앙 정렬 */
             margin-top: 20px;
         }
-        .h3-line{
-        	text-decoration: line-through;
-        }
+        .font-main{
+			font-size: 20px; 
+			font-weight: 600; 
+			line-height: 1.4;
+			
+		}
+		.font-price{
+			font-size: 16px;
+    		font-weight: 600;
+		}
+        
     </style>
 <body>
 
@@ -106,7 +115,7 @@
 			%>
 			
 		 <div id="AD">
-       		 <img src="<%= request.getContextPath() %>/image/수정배너2.png" alt="임시배너" class="ad-img">
+       		 <img src="<%= request.getContextPath() %>/image/수정배너2.png" alt="광고배너" class="ad-img" style="padding-top:20px;">
    		 </div>
     
 			<div class="content">  <%--Footer 부분 --%>
@@ -136,16 +145,16 @@
     		<a href="../product/product.jsp?id=<%= rs.getString("p_id") %>">
     		<img src="../resources/images/<%= rs.getString("p_fileName") %>" class="product-img">
     		</a>
-    			<h3><%= rs.getString("p_name") %></h3>
-    			<p><%= rs.getString("p_price") %>원</p>
+    			<p class="font-main"><%= rs.getString("p_name") %></p>
+    			<p class="font-price"><%= rs.getString("p_price") %>원</p>
     		<%
     			} else if(rs.getString("buycheck").equals("1")){
           	%>
     			<a href="javascript:void(0)" onclick="alert('이미 판매된 상품입니다.');" role="button">
     			<img src="../resources/images/<%= rs.getString("p_fileName") %>" class="product-img-gray">
     			</a>
-    			<h3 class="h3-line"><%= rs.getString("p_name") %></h3>
-    			<p class="h3-line"><%= rs.getString("p_price") %>원</p>
+    			<p class="font-main"><%= rs.getString("p_name") %></p>
+    			<p class="font-price"><%= rs.getString("p_price") %>원</p>
     			
 		          <%
     				}

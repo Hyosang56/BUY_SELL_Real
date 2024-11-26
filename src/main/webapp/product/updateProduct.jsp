@@ -69,10 +69,20 @@
         .h3-line{
         	text-decoration: line-through;
         }
-        hr {
-    margin: 20px 0; /* 위, 아래 20px 간격 추가 */
-    border: 1px solid #ccc; /* 경계선 두께와 색상 */
-}
+		        hr {
+		    margin: 20px 0; /* 위, 아래 20px 간격 추가 */
+		    border: 1px solid #ccc; /* 경계선 두께와 색상 */
+		}
+		 .font-main{
+			font-size: 20px; 
+			font-weight: 600; 
+			line-height: 1.4;
+			
+		}
+		.font-price{
+			font-size: 16px;
+    		font-weight: 600;
+		}
 </style>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 </head>
@@ -114,16 +124,16 @@
     		<a href="./editProduct.jsp?id=<%= rs.getString("p_id") %>">
     		<img src="../resources/images/<%= rs.getString("p_fileName") %>" class="product-img">
     		</a>
-    			<h3><%= rs.getString("p_name") %></h3>
-    			<p><%= rs.getString("p_price") %>원</p>
+    			<p class="font-main"><%= rs.getString("p_name") %></p>
+    			<p class="font-price"><%= rs.getString("p_price") %>원</p>
     		<%
     			} else if(rs.getString("buycheck").equals("1")){
           	%>
     			<a href="javascript:void(0)" onclick="alert('이미 판매된 상품입니다.');" role="button">
     			<img src="../resources/images/<%= rs.getString("p_fileName") %>" class="product-img-gray">
     			</a>
-    			<h3 class="h3-line"><%= rs.getString("p_name") %></h3>
-    			<p class="h3-line"><%= rs.getString("p_price") %>원</p>
+    			<p class="font-main"><%= rs.getString("p_name") %></p>
+    			<p class="font-price"><%= rs.getString("p_price") %>원</p>
     			
 		          <%
     				}
