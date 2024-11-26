@@ -104,7 +104,7 @@
  				<form name="newProduct" action="./processUpdateProduct.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
 		    		<!-- Hidden field to pass productId -->
     				<input type="hidden" name="productId" value="<%= rs.getString("p_id") %>">
-		    		<input type="text" id="name" name="name" class="font-main" value='<%= rs.getString("p_name") %>'>
+		    		<input type="text" id="name" name="name" class="font-main" maxlength="15" value='<%= rs.getString("p_name") %>'>
 		    		<input type="number" id="price" name="price" class="font-price" value='<%= rs.getInt("p_price") %>'>
 		    		<textarea name="description" maxlength="238" class="form-description"><%= rs.getString("p_description") %></textarea>
 		    		<input type="file" name="productImage" class="form-control">
