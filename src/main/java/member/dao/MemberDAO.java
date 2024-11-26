@@ -26,7 +26,9 @@ public class MemberDAO {
 			String dbPasseord="dbmgrpw";
 			Class.forName(diver); //mysql드라이버를 찾는다.
 			conn = DriverManager.getConnection(dbURL,dbID,dbPasseord);
-		}catch (Exception e) {
+		}
+		
+		catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
@@ -34,11 +36,12 @@ public class MemberDAO {
 	
 	///////////////////////////////////
 	
-	public Connection getConnection(){
+	public Connection getConnection(){             //필요할 때마다 connection처리 
 		try {
 			conn = DriverManager.getConnection(DBURL, DBUser, DBPassword);
-		} catch (Exception e) {
-			// TODO: handle exception
+		} 
+		
+		catch(SQLException e){
 			e.printStackTrace();
 		}
 		return conn;
@@ -63,7 +66,9 @@ public class MemberDAO {
 			su = pstmt.executeUpdate();
 			
 			
-		} catch (Exception e) {
+		} 
+		
+		catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally{
@@ -79,6 +84,7 @@ public class MemberDAO {
 		return su;
 	}
 	
+	/////////////////////////////////////
 	
 	public String login(String userid, String userpw){     //로그인파트 
 		String name="null";
@@ -95,20 +101,23 @@ public class MemberDAO {
 				name = rs.getString("username"); //rs.getString(1);
 			}
 			
-		} catch(SQLException e){
-			e.printStackTrace();
-		}
-		finally {
-			// TODO: handle finally clause
-			try{
-				if(rs != null) rs.close();
-				if(pstmt != null) pstmt.close();
-				if(conn != null) conn.close();
-				
-			}catch(Exception e){
+		} 		
+			
+			catch(SQLException e){
 				e.printStackTrace();
 			}
-		}
+			finally {
+				// TODO: handle finally clause
+				try{
+					if(rs != null) rs.close();
+					if(pstmt != null) pstmt.close();
+					if(conn != null) conn.close();
+					
+				}catch(Exception e){
+					e.printStackTrace();
+				}	
+			}
+		
 		return name;
 	}
 	
@@ -127,7 +136,9 @@ public class MemberDAO {
 				exist = true;
 			}
 			
-		} catch(SQLException e){
+		} 
+		
+		catch(SQLException e){
 			e.printStackTrace();
 		}
 		finally {
@@ -162,8 +173,22 @@ public class MemberDAO {
 				mid = rs.getString("userid");
 			}
 				
-		} catch (Exception e) {
+		} 
+		
+		catch(SQLException e){
 			e.printStackTrace();
+		}
+		finally {
+			// TODO: handle finally clause
+			try{
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
 		}
 		return mid;
 	}
@@ -186,8 +211,22 @@ public class MemberDAO {
 				mid = rs.getString("userpw");
 			}
 				
-		} catch (Exception e) {
+		} 
+		
+		catch(SQLException e){
 			e.printStackTrace();
+		}
+		finally {
+			// TODO: handle finally clause
+			try{
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
 		}
 		return mid;
 	}
@@ -211,8 +250,22 @@ public class MemberDAO {
 				user.setuserphone(rs.getString(7));
 				return user;//6개의 항목을 user인스턴스에 넣어 반환한다.
 			}			
-		} catch(Exception e) {
+		} 
+		
+		catch(SQLException e){
 			e.printStackTrace();
+		}
+		finally {
+			// TODO: handle finally clause
+			try{
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
 		}
 		return null;
 	}
@@ -232,8 +285,21 @@ public class MemberDAO {
 			pstmt.setString(7, userid);
 			return pstmt.executeUpdate();		
 		} 
-		catch(Exception e) {
+		
+		catch(SQLException e){
 			e.printStackTrace();
+		}
+		finally {
+			// TODO: handle finally clause
+			try{
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
 		}
 		return -1;//데이터베이스 오류
 	}
@@ -247,8 +313,20 @@ public class MemberDAO {
 			pstmt.setString(1, userid);
 			return pstmt.executeUpdate();
 		} 
-		catch(Exception e) {
+		catch(SQLException e){
 			e.printStackTrace();
+		}
+		finally {
+			// TODO: handle finally clause
+			try{
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
 		}
 		return -1;//데이터베이스 오류
 	}
@@ -274,8 +352,19 @@ public class MemberDAO {
 			}
 			return -1;//아이디가 없음,rs의 결과가 존재 하지 않음
 		} 
-		catch(SQLException e) {
+		catch(SQLException e){
 			e.printStackTrace();
+		}
+		finally {
+			// TODO: handle finally clause
+			try{
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 		return -2; //데이터베이스 오류
 	}
