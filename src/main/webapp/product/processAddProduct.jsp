@@ -4,6 +4,7 @@
 <%@ page import="com.oreilly.servlet.multipart.*" %>
 <%@ page import="product.dao.ProductDAO" %>
 <%@ page import="product.dto.ProductDTO" %>
+<%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.Random" %>
 
 <%
@@ -24,16 +25,21 @@
 	// 랜덤 ID 생성 및 중복 체크
 	String productId;
 	Random random = new Random();
-	do {
-	    StringBuilder sb = new StringBuilder();
-	    for (int i = 0; i < 6; i++) {
-	        int n = random.nextInt(36);
-	        if (n > 25) sb.append(n - 25);
-	        else sb.append((char) (n + 65));
-	    }
-	    productId = sb.toString();
-	} while (productDAO.isProductIdDuplicate(productId));
-	
+	try {
+			do {
+		    StringBuilder sb = new StringBuilder();
+		    for (int i = 0; i < 6; i++) {
+		        int n = random.nextInt(36);
+		        if (n > 25) sb.append(n - 25);
+		        else sb.append((char) (n + 65));
+	    	}
+	    	productId = sb.toString();
+		} while (productDAO.isProductIdDuplicate(productId));
+	} catch (SQLException e) {
+        e.printStackTrace();
+        out.println("<p>상품 ID 생성 중 오류가 발생했습니다.</p>");
+        return; // ID 생성 실패 시 처리 중단
+    }
 	// 폼 데이터 수집
 	String name = multi.getParameter("name");
 	String priceStr = multi.getParameter("price");
