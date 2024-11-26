@@ -10,6 +10,8 @@
 <meta charset="UTF-8">
 <title>메인 홈페이지</title>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+<!-- 폰트설정 링크 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 </head>
 <style>
         #AD {
@@ -22,6 +24,9 @@
             display: inline-block; /* 이미지 가운데 정렬 */
             
         }
+        body {
+        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+    	}
         /* 상품 카드 스타일 */
 		.product-card {
 		    width: 240px; /* 카드의 가로 너비 */

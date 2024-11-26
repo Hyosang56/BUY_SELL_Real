@@ -15,9 +15,15 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
 <%-- Bootstrap 가져오기 --%>
-
 <link href="../product/DesignCSS/add.css?v=<%=System.currentTimeMillis() %>" rel="stylesheet">
+<!-- 폰트설정 링크 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 </head>
+<style>
+	 body {
+        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+    	}
+</style>
 <body>
 	<!-- menu -->
     <jsp:include page="/login/Topbar_login.jsp" />
@@ -37,11 +43,11 @@
     				<label for="floatingInput">상품 이름</label>
     		</div>
     		<div class="form-floating">
-    				<input type="number" class="form-control" name="price" size = "30" placeholder="name" required>
+    				<input type="number" class="form-control" name="price" size = "30" placeholder="price" required>
     				<label for="floatingInput">상품 가격(숫자만 입력)</label>
     		</div>
     		<div class="form-floating">
-    				<textarea name="description" cols="50" rows="2" class="form-control" placeholder="name" ></textarea>
+    				<textarea name="description" cols="50" rows="2" class="form-control" maxlength="238" placeholder="description" ></textarea>
     				<label for="floatingInput">상품에대해 설명해주세요.</label>
     		</div>
     		<div class="form-floating">
