@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="java.sql.*"%>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.List, java.text.DecimalFormat" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="product.dao.ProductDAO" %>
 <%@ page import="product.dto.ProductDTO" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -63,6 +64,9 @@
                     e.printStackTrace();
                     out.println("<p>상품 데이터를 가져오는 중 오류가 발생했습니다.</p>");
                 }
+                
+                DecimalFormat formatter = new DecimalFormat("#,###");
+                
                 if (products != null) {
                     for (ProductDTO product : products) {
                 %>
@@ -74,7 +78,7 @@
     		<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img">
     		</a>
     			<p class="font-main"><%= product.getP_name() %></p>
-    			<p class="font-price"><%= product.getP_price() %>원</p>
+    			<p class="font-price"><%= formatter.format(product.getP_price()) %>원</p>
     		<% } else{ %>
     			<div class="text-outline">
     			<p class="text-image">판매 완료</p>
@@ -83,7 +87,7 @@
     			<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img-gray">
     			</a>
     			<p class="font-main" ><%= product.getP_name() %></p>
-    			<p class="font-price"><%= product.getP_price() %>원</p>
+    			<p class="font-price"><%= formatter.format(product.getP_price()) %>원</p>
 		          <% } %>
     		</div>
     		</div>
