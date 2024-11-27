@@ -28,23 +28,17 @@
 		}
 	%>
 	
-	<%
-				if(userid==null){//로그인이 되어 있지 않다면
-			%>
+	<% if(userid==null){//로그인이 되어 있지 않다면 %>
 			
             <jsp:include page="/login/Topbar.jsp" />
 
 
-            <%
-				} else{//로그인이 되어있다면
-			%>
+            <% } else{//로그인이 되어있다면 %>
 			
 			
 			<jsp:include page="/login/Topbar_login.jsp" />
 			
-			<%
-				}
-			%>
+			<% } %>
 			
 		 <div id="AD">
        		 <img src="<%= request.getContextPath() %>/image/수정배너2.png" alt="광고배너" class="ad-img" style="padding-top:20px;">

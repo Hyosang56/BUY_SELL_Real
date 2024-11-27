@@ -56,7 +56,7 @@ body {
 			</div>
 
 
-			<div class="collapse navbar-collapse" id="navbarsExample04">
+			<div class="collapse navbar-collapse" id="navbarsExample04" >
 				<ul class="navbar-nav me-auto mb-2 mb-md-0">
 					<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="../product/updateProduct.jsp">내 상점</a></li>
@@ -64,8 +64,10 @@ body {
 				</div>
 				
 				
-				<div class="col-4 d-flex justify-content-end align-items-center">
-				<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+				<div class="col-4 d-flex justify-content-end align-items-center" >
+				<form action="../product/searchProduct.jsp" method="get" class="d-flex">
+				<input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search" style="width: 500px;">
+				</form>
 				</div>
 				
 				

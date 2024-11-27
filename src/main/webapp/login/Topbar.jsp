@@ -71,7 +71,9 @@ body {
 				
 				
 				<div class="col-4 d-flex justify-content-end align-items-center">
-				<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+				<form action="../product/searchProduct.jsp" method="get" class="d-flex">
+				<input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search" style="width: 500px;">
+				</form>
 				</div>
 				
 				

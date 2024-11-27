@@ -127,7 +127,7 @@ public class ProductDAO {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
         	 pstmt.setString(1, userid);
              try(ResultSet rs = pstmt.executeQuery()) {
-            	if (rs.next()) {
+            	while (rs.next()) {
                 ProductDTO product = new ProductDTO();
                 product.setP_id(rs.getString("p_id"));
                 product.setP_name(rs.getString("p_name"));
@@ -176,6 +176,28 @@ public class ProductDAO {
          pstmt.setString(1, productId);
          pstmt.executeUpdate();
      	}
+    }
+    public List<ProductDTO> getSearch(String search) throws SQLException {
+        List<ProductDTO> products = new ArrayList<>();
+        String sql = "SELECT * FROM product WHERE p_name LIKE ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        	 pstmt.setString(1,"%"+ search +"%");
+             try(ResultSet rs = pstmt.executeQuery()) {
+            	while (rs.next()) {
+                ProductDTO product = new ProductDTO();
+                product.setP_id(rs.getString("p_id"));
+                product.setP_name(rs.getString("p_name"));
+                product.setP_price(rs.getInt("p_price"));
+                product.setP_description(rs.getString("p_description"));
+                product.setP_fileName(rs.getString("p_fileName"));
+                product.setBuycheck(rs.getInt("buycheck"));
+                product.setUserid(rs.getString("userid"));
+                products.add(product);
+            	}
+           }
+        }
+        return products;
     }
     
 }
