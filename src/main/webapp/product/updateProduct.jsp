@@ -44,6 +44,7 @@
 	        for (ProductDTO product : products) {
  	%>		
  			<div class="product-card">
+ 			<div class="image-wrapper">
     		<%  if(product.getBuycheck() == 0){  %>
     		<a href="./editProduct.jsp?id=<%= product.getP_id() %>">
     		<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img">
@@ -51,15 +52,19 @@
     			<p class="font-main"><%= product.getP_name() %></p>
     			<p class="font-price"><%= product.getP_price() %>원</p>
     		<% } else {  %>
+    			<div class="text-outline">
+    			<p class="text-image">판매 완료</p>
+    			</div>
     			<a href="javascript:void(0)" onclick="alert('이미 판매된 상품입니다.');" role="button">
     			<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img-gray">
     			</a>
-    			<p class="font-main" style="text-decoration: line-through;"><%= product.getP_name() %></p>
-    			<p class="font-price" style="text-decoration: line-through;"><%= product.getP_price() %>원</p>
+    			<p class="font-main" ><%= product.getP_name() %></p>
+    			<p class="font-price"><%= product.getP_price() %>원</p>
     			
 		          <%
     				}
 		          %>
+		       </div>
     		</div>
  	
     		<%
@@ -88,13 +93,18 @@
 	    if (products != null) {
 	        for (ProductDTO product : products) {
  	%>
- 	<div class="product-card">
+ 		<div class="product-card">
+ 		<div class="image-wrapper">
+ 			<div class="text-outline">
+    			<p class="text-image">구매 완료</p>
+   			</div>
     		<a href="javascript:void(0)" onclick="alert('이미 구매한 상품입니다.');" role="button">
     			<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img-gray">
     			</a>
-    			<p class="font-main" style="text-decoration: line-through;"><%= product.getP_name() %></p>
-    			<p class="font-price" style="text-decoration: line-through;"><%= product.getP_price() %>원</p>
+    			<p class="font-main" ><%= product.getP_name() %></p>
+    			<p class="font-price"><%= product.getP_price() %>원</p>
 
+    		</div>
     		</div>
     		<%
     			}

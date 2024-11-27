@@ -16,6 +16,7 @@ html,
         /* 상품 카드 스타일 */
 		.product-card {
 		    width: 280px; /* 카드의 가로 너비 */
+		    height: 330px;
 		    padding: 16px; /* 내부 여백 */
 		    border: 2px solid #000; /* 검은색 테두리 */
 		    border-radius: 12px; /* 둥근 모서리 */
@@ -26,6 +27,50 @@ html,
 		    flex-direction: column; /* 세로 방향으로 정렬 */
 		    align-items: center; /* 수평 중앙 정렬 */
 		}
+		/* 이미지와 텍스트를 감싸는 부모 요소 */
+		.image-wrapper {
+		    position: relative; /* 자식 요소의 절대 위치를 기준으로 설정 */
+		    width: 280px; /* 이미지와 동일한 크기 */
+		    height: 330px; /* 높이는 내부 콘텐츠에 맞춤 */
+		    padding: 16px; /* 내부 여백 */
+		    display: flex; /* 동일한 레이아웃 */
+		    flex-direction: column; /* 동일한 방향 */
+		    align-items: center; /* 수평 중앙 정렬 */
+		    margin: 0; /* 불필요한 마진 제거 */
+		}
+		
+		/* 텍스트를 이미지 위에 출력 */
+		.text-image {
+		    position: absolute; /* 부모 요소 기준으로 배치 */
+		    top: 45%; /* 상단에서 50% 내려옴 */
+		    left: 50%; /* 왼쪽에서 50% 이동 */
+		    transform: translate(-50%, -50%); /* 정확히 가운데 정렬 */
+		    color: white; /* 텍스트 색상 */
+		    font-size: 18px; /* 적절한 크기 */
+		    font-weight: bold; /* 강조 */
+		    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 텍스트 가독성을 위한 그림자 */
+		    z-index: 1; /* 텍스트가 이미지 위에 보이도록 설정 */
+		    pointer-events: none; /* 클릭 이벤트를 무시 (배경 이미지 클릭 가능하도록) */
+		}
+		.text-outline{
+			position: absolute; /* 부모 요소 기준으로 배치 */
+		    top: 40%; /* 상단에서 50% 내려옴 */
+		    left: 50%; /* 왼쪽에서 50% 이동 */
+		    transform: translate(-50%, -50%); /* 정확히 가운데 정렬 */
+			width:280px;
+			height: auto;
+		    background-color: #808080; /* 회색 배경 */
+		    color: white; /* 텍스트 색상: 하얀색 */
+		    text-align: center; /* 텍스트를 중앙 정렬 */
+		    padding: 20px 0; /* 위아래 여백 추가 */
+		    box-sizing: border-box; /* 테두리를 포함한 전체 크기 조정 */
+		    z-index: 1; /* 텍스트가 이미지 위에 보이도록 설정 */
+		    background: rgba(0, 0, 0, 0.49);
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			backdrop-filter: blur(5px);
+			-webkit-backdrop-filter: blur(5px);
+			
+		}
 		.product-img {
 		    width: 200px; /* 고정 가로 크기 */
 		    height: 200px; /* 고정 세로 크기 */
@@ -34,6 +79,7 @@ html,
 		    margin-bottom: 12px; /* 이미지와 텍스트 간 간격 */
 		    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
 		    cursor: pointer; /* 마우스를 올렸을 때 클릭 가능하다는 표시 */
+			position:relative; /* overtext의 position을 잡기 위해 기준이 되는 포지션임을 선언 */
 		}
         /* 상품 이미지 hover 효과 */
         .product-img:hover {
@@ -50,8 +96,6 @@ html,
 		    cursor: pointer; /* 마우스를 올렸을 때 클릭 가능하다는 표시 */    
         	filter: grayscale(100%);
         }
-
-        
         /* 상품을 가로로 정렬하기 위한 컨테이너 */
         .product-container {
             display: grid;

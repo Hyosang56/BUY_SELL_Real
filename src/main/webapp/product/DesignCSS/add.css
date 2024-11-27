@@ -41,7 +41,7 @@ body {                            /*백그라운드 화면색, 페딩처리(여�
   margin-bottom: 10px;
 }
 
-.form-add-in .form-id {                 /*id항목 플로팅창,버튼 정렬 옵션*/
+.form-add-in .form-id .form-floating {                 /*id항목 플로팅창,버튼 정렬 옵션*/
   display: flex;
 }
 
@@ -60,13 +60,24 @@ body {                            /*백그라운드 화면색, 페딩처리(여�
 
 .form-add-in input[type="number"] {           /*이메일 입력 플로팅라벨 옵션*/
   margin-bottom: -1px;
+  border-top-right-radius:0;
+  border-top-left-radius:0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
 .form-add-in textarea[name="description"]{
-	 width: 100%;
-    height: 200px;
+ width: 100%;
+   height: 200px;
+   border-top-right-radius:0;
+  border-top-left-radius:0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
+.form-add-in input[type="file"] {           /*이메일 입력 플로팅라벨 옵션*/
+  margin-bottom: 20px;
+  border-top-right-radius:0;
+  border-top-left-radius:0;
 
+}
 
