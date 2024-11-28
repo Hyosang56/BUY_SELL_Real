@@ -66,7 +66,7 @@
     		
 			            <%
 							} else{//로그인이 되어있다면
-								if(userid.equals(product.getP_id())){
+								if(userid.equals(product.getUserid())){
 						%>
 			
 						<a class="btn btn-info" onclick="alert('본인이 판매 중인 상품은 구매할 수 없습니다.')" >구매하기 </a>
