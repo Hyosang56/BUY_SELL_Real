@@ -35,7 +35,7 @@
 	<% } %>
 			
 	<div id="AD">
-    	<img src="../image/광고배너.jpg" alt="광고배너" class="ad-img" >
+    	<img src="../image/ad2.png" alt="광고배너" class="ad-img" >
  	</div>
     
 	<div class="content">  <%--Footer 부분 --%>
