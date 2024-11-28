@@ -36,13 +36,13 @@
 	if (product != null) {  // 레코드가 존재하는 경우에만 데이터 출력
  	%>
  	<div class="content">        <%--Footer 부분 --%>
- 	<div class="outline">
+ 		<div class="outline">
     		<div class="form-product-out">
- 			<div>
- 				<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img">
- 			</div>
- 			<div class="form-textbox">
- 				<form name="newProduct" action="./processUpdateProduct.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
+ 				<div>
+ 					<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img">
+ 				</div>
+ 				<div class="form-textbox">
+ 					<form name="newProduct" action="./processUpdateProduct.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
 		    		<!-- Hidden field to pass productId -->
     				<input type="hidden" name="productId" value="<%= product.getP_id() %>">
 		    		<input type="text" id="name" name="name" class="font-main" maxlength="15" value='<%= product.getP_name() %>'>
@@ -55,12 +55,11 @@
 		    				<a href="./deleteProduct.jsp?id=<%= product.getP_id() %>" class="btn btn-danger" role="button">삭제하기</a>
 		    			</div>
 		    		</div>
-		    		
- 				</form>
+ 					</form>
+ 				</div>
  			</div>
+ 			<hr>
  		</div>
- 		<hr>
- 	</div>
  	<% } %>
 	</div>	
 		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>

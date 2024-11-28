@@ -66,7 +66,7 @@ body {
 				
 				<div class="col-4 d-flex justify-content-end align-items-center" >
 				<form action="../product/searchProduct.jsp" method="get" class="d-flex">
-				<input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search" style="width: 500px;">
+				<input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search" style="width: 500px;" required>
 				</form>
 				</div>
 				

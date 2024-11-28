@@ -4,9 +4,8 @@ html,
         }
 
         #AD .ad-img {
-            max-width: 55%; /* 이미지 크기 조정 */
-            height: auto; /* 비율 유지 */
             display: inline-block; /* 이미지 가운데 정렬 */
+            margin-top:20px;
             
         }
         body {

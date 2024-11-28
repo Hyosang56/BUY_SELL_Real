@@ -24,25 +24,11 @@
 		}
 	%>
 	
-	<%
-				if(userid==null){//로그인이 되어 있지 않다면
-			%>
-			
-            <jsp:include page="/login/Topbar.jsp" />
-
-
-            <%
-				} else{//로그인이 되어있다면
-			%>
-			
-			
-			<jsp:include page="/login/Topbar_login.jsp" />
-			
-			<%
-				}
-			%>
-    
-
+	<% if(userid==null){//로그인이 되어 있지 않다면 %>
+		<jsp:include page="/login/Topbar.jsp" />
+	<% } else{//로그인이 되어있다면 %>
+		<jsp:include page="/login/Topbar_login.jsp" />
+	<% } %>
     
     <%
     String productId = request.getParameter("id");
@@ -57,54 +43,52 @@
 	
 	if (product != null) {  // 레코드가 존재하는 경우에만 데이터 출력
     %>
-        <div class="content">  <%--Footer 부분 --%>
-   		 <div class="outline">
+	<div class="content">  <%--Footer 부분 --%>
+   		<div class="outline">
     		<div class="form-product-out">
-			<div >
-				<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img">
-			</div>
-    		<div class="form-textbox">
-    			<p class="font-main"><%= product.getP_name() %></p>
-    			<p class=font-price><%= product.getP_price() %> 원</p>
-    			<p>
-    				<strong>상품 코드 : </strong>
-    				<%= product.getP_id() %>
-    			</p>
-				<p class="form-description"><%= product.getP_description() %></p>
-				<p>
-    			<%
-				if(userid==null){//로그인이 되어 있지 않다면
-				%>
-            <a href="../login/loginForm.jsp" class="btn btn-info" onclick="alert('구매하려면 로그인해주세요.') ">구매하기 </a>
-    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 </a>
+				<div >
+					<img src="../resources/images/<%= product.getP_fileName() %>" class="product-img">
+				</div>
+    			<div class="form-textbox">
+    				<p class="font-main"><%= product.getP_name() %></p>
+    				<p class=font-price><%= product.getP_price() %> 원</p>
+    				<p>
+	    				<strong>상품 코드 : </strong>
+	    				<%= product.getP_id() %>
+    				</p>
+					<p class="form-description"><%= product.getP_description() %></p>
+					<p>
+		    			<%
+						if(userid==null){//로그인이 되어 있지 않다면
+						%>
+			            <a href="../login/loginForm.jsp" class="btn btn-info" onclick="alert('구매하려면 로그인해주세요.') ">구매하기 </a>
+			    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 </a>
     		
-            <%
-				} else{//로그인이 되어있다면
-					if(userid.equals(product.getP_id())){
-			%>
+			            <%
+							} else{//로그인이 되어있다면
+								if(userid.equals(product.getP_id())){
+						%>
 			
-			<a class="btn btn-info" onclick="alert('본인이 판매 중인 상품은 구매할 수 없습니다.')" >구매하기 </a>
-    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 </a>
-			
-			<%
-				}else{
-			%>
-			<a href="./processBuyProduct.jsp?id=<%= product.getP_id() %>" class="btn btn-info">구매하기 </a>
-    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 </a>
-			<%
-					}
-				}
-			%>
-			</p>
-			</div>
+						<a class="btn btn-info" onclick="alert('본인이 판매 중인 상품은 구매할 수 없습니다.')" >구매하기 </a>
+			    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 </a>
+						
+						<%
+							}else{
+						%>
+						<a href="./processBuyProduct.jsp?id=<%= product.getP_id() %>" class="btn btn-info">구매하기 </a>
+			    		<a href="../login/MAIN.jsp" class="btn btn-secondary">메인 홈페이지 </a>
+						<%
+								}
+							}
+						%>
+					</p>
+				</div>
+    		</div>
     	</div>
-    </div>
-    <%
-    } else {  // 레코드가 없는 경우 메시지 출력
-%>
-    <div class="container">
-        <p>해당 상품 정보를 찾을 수 없습니다.</p>
-    </div>
+   	 <% } else {  // 레코드가 없는 경우 메시지 출력 %>
+	    <div class="container">
+	        <p>해당 상품 정보를 찾을 수 없습니다.</p>
+	    </div>
 	<% } %>
     </div>	
 		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>
