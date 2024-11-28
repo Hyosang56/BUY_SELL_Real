@@ -79,7 +79,7 @@ if(errMsg == null) errMsg = ""; %>
 									 
                                                                                                     <%-- 회원가입 --%>                                                                                                  
 					<button type="button"class="btn btn-outline-secondary btn-lg" name="join"     
-					onclick="window.location.href='joinForm.jsp'">Join</button>
+					onclick="window.location.href='joinForm.jsp'">회원가입</button>
 					</div>
 					
 					<div class="FIND">
