@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.List , java.text.DecimalFormat" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="product.dao.ProductDAO" %>
 <%@ page import="product.dto.ProductDTO" %>
@@ -41,6 +41,8 @@
         out.println("<p>상품 데이터를 가져오는 중 오류가 발생했습니다.</p>");
     }
 	
+    DecimalFormat formatter = new DecimalFormat("#,###");
+    
 	if (product != null) {  // 레코드가 존재하는 경우에만 데이터 출력
     %>
 	<div class="content">  <%--Footer 부분 --%>
@@ -51,7 +53,7 @@
 				</div>
     			<div class="form-textbox">
     				<p class="font-main"><%= product.getP_name() %></p>
-    				<p class=font-price><%= product.getP_price() %> 원</p>
+    				<p class=font-price><%= formatter.format(product.getP_price()) %> 원</p>
     				<p>
 	    				<strong>상품 코드 : </strong>
 	    				<%= product.getP_id() %>
