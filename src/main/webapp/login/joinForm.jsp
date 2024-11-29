@@ -58,7 +58,7 @@
 							
 				<div class="form-floating">
 				<input type="password" class="form-control" id="userpw" name="userpw" placeholder="password" size = "30" required>
-				<label for="floatingPassword">비밀번호(8글자 이상)</label>
+				<label for="floatingPassword">비밀번호(8글자 이상의 영어, 숫자, 기호 조합)</label>
 				</div>
 				
 				<div class="form-floating">
