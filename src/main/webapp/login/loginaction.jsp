@@ -29,7 +29,7 @@
 		if(userid!=null){//로그인이 된 사람은 또 다시 로그인 할 수 없도록 막아준다.
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('이미 로그인이 되어있습니다.')");
+			//script.println("alert('이미 로그인이 되어있습니다.')");     검은화면 출력 방지.
 			script.println("location.href='MAIN.jsp'");
 			script.println("</script>");
 		}
