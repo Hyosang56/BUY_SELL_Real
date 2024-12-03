@@ -11,7 +11,7 @@
 		session.invalidate();//현재 이 페이지에 접속한 회원이 세션을 빼앗기도록
 	%>
 	<script>
-		location.href="MAIN.jsp";
+		location.href="loginForm.jsp";
 	</script>
 </body>
 </html>
