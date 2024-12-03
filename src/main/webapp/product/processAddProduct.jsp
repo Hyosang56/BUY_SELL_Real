@@ -10,7 +10,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 
-		// 이미지 저장 경로 설정
+	// 이미지 저장 경로 설정
 	String path = "./resources/images";
 	String savedir = request.getServletContext().getRealPath(path);
 	int maxSize = 5 * 1024 * 1024; // 5MB 제한

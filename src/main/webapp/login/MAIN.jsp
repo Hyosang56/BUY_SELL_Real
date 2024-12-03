@@ -39,7 +39,7 @@
  	</div>
     
 	<div class="content">  <%--Footer 부분 --%>
-		<div class="container">
+		<div class="container" style="margin-top:50px;">
     		<div class="row" align="center">
     			<div class="product-container">
 	    		<% 
@@ -83,7 +83,6 @@
 			    		%>
     			</div>
     		</div>
-    	<hr>
     </div>
  </div>	
 		<jsp:include page="/login/footer.jsp" />       <%--Footer 부분 --%>

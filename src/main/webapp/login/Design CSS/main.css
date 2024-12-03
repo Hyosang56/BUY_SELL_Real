@@ -102,6 +102,7 @@ html,
             gap: 20px; /* 카드 간격 */
             justify-items: center; /* 카드 중앙 정렬 */
             margin-top: 20px;
+            row-gap: 80px; /* 위아래 간격 */
         }
         .font-main{
 			font-size: 20px; 
