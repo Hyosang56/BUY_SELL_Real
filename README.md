@@ -1,5 +1,6 @@
 ## 프로젝트소개
-![buy sell](https://github.com/user-attachments/assets/a6014a4e-2700-40f0-9cb0-20872a05a9dc)
+![logo](https://github.com/user-attachments/assets/6135e6a2-5554-4a3c-be7b-0e16dc7fb5d2)
+
 - 프로젝트명: BUY&SELL(중고거래 사이트)
   
 - 개발기간: 2024.11.01 ~ 2024.11.30
@@ -16,7 +17,7 @@
 ![1](https://github.com/user-attachments/assets/eb3db343-e033-4b4b-9e67-ab9f2354ca24)
 
 ## ERD
-![2](https://github.com/user-attachments/assets/efd00a27-232b-4374-befc-d05c5f4a1a38)
+![ERD](https://github.com/user-attachments/assets/72a970bb-6f00-4f4b-8512-56ad346caa41)
 
 
 ## 프로젝트
@@ -27,6 +28,14 @@
 ![main](https://github.com/user-attachments/assets/3d2c5875-60a6-4af0-a91d-b60f3403b9f8)
 
 </details>
+
+<details>
+<summary>상품 상세보기</summary>  
+  
+![product](https://github.com/user-attachments/assets/a73a6d7e-c1e0-4ad4-9d89-3de5be556456)
+
+</details>
+
 <details>
   <summary>회원가입</summary>
   
@@ -44,6 +53,20 @@
   <summary>마이페이지</summary>
 
 ![mypage](https://github.com/user-attachments/assets/45379017-36dc-445e-bf13-49665425c9f2)
+  
+</details>
+
+<details>
+  <summary>판매</summary>
+
+![add](https://github.com/user-attachments/assets/dd023cf4-5da2-4403-ade6-b70e90779c72)
+  
+</details>
+
+<details>
+  <summary>내 상점</summary>
+
+![prductupdate](https://github.com/user-attachments/assets/a84acb56-cc36-4a94-8678-276e199c4a7c)
   
 </details>
 
