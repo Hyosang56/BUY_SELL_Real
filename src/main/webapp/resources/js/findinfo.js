@@ -1,4 +1,4 @@
-function id_search() {                            //ID 찾는 자바스크립트
+function id_search() {                            //ID 찾기 전 유효성검사  자바스크립트
 	 	var frm = document.idfindscreen;
 
 	 	if (frm.username.value.length < 1) {
@@ -18,7 +18,7 @@ function id_search() {                            //ID 찾는 자바스크립트
 	 
 	 
 	 
-	 function pw_search(){                        //PW 찾는 자바스크립트
+	 function pw_search(){                        //PW 찾기 전 유효성검사 자바스크립트
 
 	   var frm = document.pwfindscreen;
 

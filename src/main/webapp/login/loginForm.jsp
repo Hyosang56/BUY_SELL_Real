@@ -26,7 +26,7 @@ if(errMsg == null) errMsg = ""; %>
 <script type="text/javascript" src="../resources/js/Validation.js?v=<%=System.currentTimeMillis() %>"> <%-- 입력값 확인 증명 자바스크립트 --%>
 </script>
 
-<script type="text/javascript" src="../resources/js/loginsave.js?v=<%=System.currentTimeMillis() %>"> <%-- 입력값 확인 증명 자바스크립트 --%>
+<script type="text/javascript" src="../resources/js/loginsave.js?v=<%=System.currentTimeMillis() %>"> <%-- 로그인 정보 쿠키 저장 자바스크립트 --%>
 </script>
 
 <%-- 폰트설정 링크 --%>
@@ -38,10 +38,10 @@ if(errMsg == null) errMsg = ""; %>
 
 <jsp:include page="/login/Topbar.jsp" />
 
-<div class="content">        <%--Footer 부분 --%>
+<div class="content">        <%-- Footer 부분 --%>
 <div class="text-center">
 <div class="contentmain">
-				
+				 
 <main class="form-login-out">
 	<h3>Buy & Sell에 오신걸 환영합니다.</h3>
 
