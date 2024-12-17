@@ -20,6 +20,9 @@
 ## 기술 스택
 ![1](https://github.com/user-attachments/assets/eb3db343-e033-4b4b-9e67-ab9f2354ca24)
 
+## 플로우 차트
+<img width="7517" alt="flowchart" src="https://github.com/user-attachments/assets/e1872262-b761-4976-9cf6-896ebd7ff595" />
+
 ## ERD
 ![erd2](https://github.com/user-attachments/assets/85e07994-2ac2-4dc1-b225-5fc2cc8b982d)
 
